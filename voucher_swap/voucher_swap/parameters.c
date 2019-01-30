@@ -140,7 +140,8 @@ static struct initialization offsets[] = {
 	{ "iPhone10,5", "16A9366-16C104", offsets__iphone10_1__16B92  },
     {"iPad7,5", "16C50-16C104", offsets__iphone10_1__16B92 },
     { "iPhone9,*", "16A366-16C104", offsets__iphone10_1__16B92  },
-       { "iPhone8,*", "16A366-16C104", offsets__iphone10_1__16B92  },
+    //Aperently A9 need a litle bit modafication wiil leave that fot now
+       //{ "iPhone8,*", "16A366-16C104", offsets__iphone10_1__16B92  },
     
 	{ "*",          "*",            initialize_computed_offsets },
 };
