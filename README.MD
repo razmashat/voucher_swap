@@ -3,6 +3,6 @@ offsets for those devices:
 
 
 
-All iPhones (A10+) 12.0-12.1.2
+All iPhones (A9+) 12.0-12.1.2
 
 iPad7,5    iOS 12.1.1
