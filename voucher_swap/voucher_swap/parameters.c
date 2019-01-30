@@ -126,12 +126,22 @@ initialize_computed_offsets() {
 	COUNT_PER_BLOCK(ipc_port) = BLOCK_SIZE(ipc_port) / SIZE(ipc_port);
 	COUNT_PER_BLOCK(ipc_voucher) = BLOCK_SIZE(ipc_voucher) / SIZE(ipc_voucher);
 }
-
+// iPhone10,1 should work on all devices pre X
+//iPhone11,8 should work on all devices After X
+//offsets should work on all versions (12.0-12.1.2)
 // A list of offset initializations by platform.
 static struct initialization offsets[] = {
-	{ "iPhone11,*", "16C50-16C104", offsets__iphone11_8__16C50  },
-	{ "iPhone10,1", "16B92-16C101", offsets__iphone10_1__16B92  },
+	{ "iPhone11,*", "16A366-16C104", offsets__iphone11_8__16C50  },
+	{ "iPhone10,3", "16A366-16C104", offsets__iphone11_8__16C50  },
+	{ "iPhone10,6", "16A366-16C104", offsets__iphone11_8__16C50  },
+	{ "iPhone10,1", "16A9366-16C104", offsets__iphone10_1__16B92  },
+	{ "iPhone10,4", "16A9366-16C104", offsets__iphone10_1__16B92  },
+	{ "iPhone10,2", "16A9366-16C104", offsets__iphone10_1__16B92  },
+	{ "iPhone10,5", "16A9366-16C104", offsets__iphone10_1__16B92  },
     {"iPad7,5", "16C50-16C104", offsets__iphone10_1__16B92 },
+    { "iPhone9,*", "16A366-16C104", offsets__iphone10_1__16B92  },
+       { "iPhone8,*", "16A366-16C104", offsets__iphone10_1__16B92  },
+    
 	{ "*",          "*",            initialize_computed_offsets },
 };
 
