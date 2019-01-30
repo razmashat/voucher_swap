@@ -4,5 +4,5 @@ offsets for those devices:
 
 
 All iPhones (A9+) 12.0-12.1.2
-
 iPad7,5    iOS 12.1.1
+iPhone10,1 (iPhone 8) 12.0 16A366
