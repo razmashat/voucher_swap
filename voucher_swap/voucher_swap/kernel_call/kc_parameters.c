@@ -112,8 +112,14 @@ addresses__iphone10_1__16B92() {
 
 static void
 addresses__iphone10_1__16C101() {
-	ADDRESS(IOUserClient__vtable)                           = SLIDE(0xfffffff0070cc648);
-	ADDRESS(IORegistryEntry__getRegistryEntryID)            = SLIDE(0xfffffff00759424c);
+    ADDRESS(IOUserClient__vtable)                           = SLIDE(0xfffffff0070cc648);
+    ADDRESS(IORegistryEntry__getRegistryEntryID)            = SLIDE(0xfffffff00759424c);
+}
+
+static void
+addresses__iphone9_2__16B92() {
+    ADDRESS(IOUserClient__vtable)                           = SLIDE(0xfffffff0070cc648);
+    ADDRESS(IORegistryEntry__getRegistryEntryID)            = SLIDE(0xfffffff007573f34);
 }
 
 // A list of address initializations by platform.
@@ -160,6 +166,7 @@ pac__iphone11_8__16C50() {
 // A list of PAC initializations by platform.
 static struct initialization pac_codes[] = {
 	{ "iPhone11,*", "*", pac__iphone11_8__16C50 },
+    { "iPhone9,2", "16B92", addresses__iphone9_2__16B92 }
 };
 
 #endif // __arm64e__

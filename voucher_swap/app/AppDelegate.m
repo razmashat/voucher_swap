@@ -20,6 +20,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    printf("Sleeping for 30 second to avoid un-auth operation.");
     sleep(30);
 	mach_port_t tfp0 = voucher_swap();
     if (!MACH_PORT_VALID(tfp0)) {
