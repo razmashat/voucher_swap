@@ -128,6 +128,7 @@ static struct initialization addresses[] = {
 	{ "iPhone11,2", "16C50-16C104", addresses__iphone11_2__16C50  },
 	{ "iPhone10,1", "16B92",        addresses__iphone10_1__16B92  },
     { "iPhone10,1", "16C101",       addresses__iphone10_1__16C101 },
+    { "iPhone10,1", "16A366",       addresses__iphone10_1__16C101 },
     { "iPhone9,2", "16B92",         addresses__iphone9_2__16B92 },
 };
 

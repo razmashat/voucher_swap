@@ -134,14 +134,15 @@ static struct initialization offsets[] = {
 	{ "iPhone11,*", "16A366-16C104", offsets__iphone11_8__16C50  },
 	{ "iPhone10,3", "16A366-16C104", offsets__iphone11_8__16C50  },
 	{ "iPhone10,6", "16A366-16C104", offsets__iphone11_8__16C50  },
-	{ "iPhone10,1", "16A9366-16C104", offsets__iphone10_1__16B92  },
+    { "iPhone10,1", "16A9366-16C104", offsets__iphone10_1__16B92  },
+    { "iPhone10,1", "16A366", offsets__iphone10_1__16B92  },
 	{ "iPhone10,4", "16A9366-16C104", offsets__iphone10_1__16B92  },
 	{ "iPhone10,2", "16A9366-16C104", offsets__iphone10_1__16B92  },
 	{ "iPhone10,5", "16A9366-16C104", offsets__iphone10_1__16B92  },
     {"iPad7,5", "16C50-16C104", offsets__iphone10_1__16B92 },
     { "iPhone9,*", "16A366-16C104", offsets__iphone10_1__16B92  },
     //Aperently A9 will get tfp0 but wont be able to creat IOAudio2DeviceUserCilent (maybe?) so we will leave the offsets as is for noe
-       { "iPhone8,*", "16A366-16C104", offsets__iphone10_1__16B92  },
+    { "iPhone8,*", "16A366-16C104", offsets__iphone10_1__16B92  },
     
 	{ "*",          "*",            initialize_computed_offsets },
 };
