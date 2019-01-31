@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB0E9F5522035FCB001E9502 /* Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0E9F5422035FCB001E9502 /* Extension.m */; };
+		AB6811702203245000947531 /* FileProviderExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AB68116F2203245000947531 /* FileProviderExtension.m */; };
+		AB6811732203245000947531 /* FileProviderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6811722203245000947531 /* FileProviderItem.m */; };
+		AB6811762203245000947531 /* FileProviderEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6811752203245000947531 /* FileProviderEnumerator.m */; };
+		AB6811812203245100947531 /* DocumentActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6811802203245100947531 /* DocumentActionViewController.m */; };
+		AB6811842203245100947531 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6811822203245100947531 /* MainInterface.storyboard */; };
+		AB6811882203245100947531 /* FileProviderUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB68117D2203245000947531 /* FileProviderUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AB68118B2203245100947531 /* FileProvider.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB68116C2203245000947531 /* FileProvider.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ABFA14482202CA83000ACF42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFA14472202CA83000ACF42 /* AppDelegate.m */; };
 		ABFA144B2202CA83000ACF42 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFA144A2202CA83000ACF42 /* ViewController.m */; };
 		ABFA144E2202CA83000ACF42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABFA144C2202CA83000ACF42 /* Main.storyboard */; };
@@ -40,7 +48,55 @@
 		ABFA15162202DBE7000ACF42 /* patchfinder64.c in Sources */ = {isa = PBXBuildFile; fileRef = ABFA150E2202DBE6000ACF42 /* patchfinder64.c */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AB6811862203245100947531 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABFA143B2202CA83000ACF42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB68117C2203245000947531;
+			remoteInfo = FileProviderUI;
+		};
+		AB6811892203245100947531 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABFA143B2202CA83000ACF42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB68116B2203245000947531;
+			remoteInfo = FileProvider;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AB6811922203245100947531 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AB6811882203245100947531 /* FileProviderUI.appex in Embed App Extensions */,
+				AB68118B2203245100947531 /* FileProvider.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		AB0E9F5422035FCB001E9502 /* Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Extension.m; sourceTree = "<group>"; };
+		AB0E9F5622035FD4001E9502 /* Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Extension.h; sourceTree = "<group>"; };
+		AB68116C2203245000947531 /* FileProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FileProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB68116E2203245000947531 /* FileProviderExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileProviderExtension.h; sourceTree = "<group>"; };
+		AB68116F2203245000947531 /* FileProviderExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileProviderExtension.m; sourceTree = "<group>"; };
+		AB6811712203245000947531 /* FileProviderItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileProviderItem.h; sourceTree = "<group>"; };
+		AB6811722203245000947531 /* FileProviderItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileProviderItem.m; sourceTree = "<group>"; };
+		AB6811742203245000947531 /* FileProviderEnumerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileProviderEnumerator.h; sourceTree = "<group>"; };
+		AB6811752203245000947531 /* FileProviderEnumerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileProviderEnumerator.m; sourceTree = "<group>"; };
+		AB6811772203245000947531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB6811782203245000947531 /* FileProvider.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileProvider.entitlements; sourceTree = "<group>"; };
+		AB68117D2203245000947531 /* FileProviderUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FileProviderUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB68117F2203245100947531 /* DocumentActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocumentActionViewController.h; sourceTree = "<group>"; };
+		AB6811802203245100947531 /* DocumentActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DocumentActionViewController.m; sourceTree = "<group>"; };
+		AB6811832203245100947531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		AB6811852203245100947531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABFA14432202CA83000ACF42 /* rootKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rootKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFA14462202CA83000ACF42 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ABFA14472202CA83000ACF42 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -110,6 +166,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AB6811692203245000947531 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB68117A2203245000947531 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ABFA14402202CA83000ACF42 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -120,10 +190,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB68116D2203245000947531 /* FileProvider */ = {
+			isa = PBXGroup;
+			children = (
+				AB68116E2203245000947531 /* FileProviderExtension.h */,
+				AB68116F2203245000947531 /* FileProviderExtension.m */,
+				AB6811712203245000947531 /* FileProviderItem.h */,
+				AB6811722203245000947531 /* FileProviderItem.m */,
+				AB6811742203245000947531 /* FileProviderEnumerator.h */,
+				AB6811752203245000947531 /* FileProviderEnumerator.m */,
+				AB6811772203245000947531 /* Info.plist */,
+				AB6811782203245000947531 /* FileProvider.entitlements */,
+			);
+			path = FileProvider;
+			sourceTree = "<group>";
+		};
+		AB68117E2203245100947531 /* FileProviderUI */ = {
+			isa = PBXGroup;
+			children = (
+				AB68117F2203245100947531 /* DocumentActionViewController.h */,
+				AB6811802203245100947531 /* DocumentActionViewController.m */,
+				AB6811822203245100947531 /* MainInterface.storyboard */,
+				AB6811852203245100947531 /* Info.plist */,
+			);
+			path = FileProviderUI;
+			sourceTree = "<group>";
+		};
 		ABFA143A2202CA83000ACF42 = {
 			isa = PBXGroup;
 			children = (
 				ABFA14452202CA83000ACF42 /* rootKit */,
+				AB68116D2203245000947531 /* FileProvider */,
+				AB68117E2203245100947531 /* FileProviderUI */,
 				ABFA14442202CA83000ACF42 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -132,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				ABFA14432202CA83000ACF42 /* rootKit.app */,
+				AB68116C2203245000947531 /* FileProvider.appex */,
+				AB68117D2203245000947531 /* FileProviderUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,6 +254,8 @@
 				ABFA14472202CA83000ACF42 /* AppDelegate.m */,
 				ABFA14492202CA83000ACF42 /* ViewController.h */,
 				ABFA144A2202CA83000ACF42 /* ViewController.m */,
+				AB0E9F5622035FD4001E9502 /* Extension.h */,
+				AB0E9F5422035FCB001E9502 /* Extension.m */,
 				ABFA144C2202CA83000ACF42 /* Main.storyboard */,
 				ABFA14512202CA84000ACF42 /* LaunchScreen.storyboard */,
 				ABFA14552202CA84000ACF42 /* main.m */,
@@ -283,6 +385,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AB68116B2203245000947531 /* FileProvider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB68118F2203245100947531 /* Build configuration list for PBXNativeTarget "FileProvider" */;
+			buildPhases = (
+				AB6811682203245000947531 /* Sources */,
+				AB6811692203245000947531 /* Frameworks */,
+				AB68116A2203245000947531 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FileProvider;
+			productName = FileProvider;
+			productReference = AB68116C2203245000947531 /* FileProvider.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AB68117C2203245000947531 /* FileProviderUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB68118C2203245100947531 /* Build configuration list for PBXNativeTarget "FileProviderUI" */;
+			buildPhases = (
+				AB6811792203245000947531 /* Sources */,
+				AB68117A2203245000947531 /* Frameworks */,
+				AB68117B2203245000947531 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FileProviderUI;
+			productName = FileProviderUI;
+			productReference = AB68117D2203245000947531 /* FileProviderUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		ABFA14422202CA83000ACF42 /* rootKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ABFA14592202CA84000ACF42 /* Build configuration list for PBXNativeTarget "rootKit" */;
@@ -290,10 +426,13 @@
 				ABFA143F2202CA83000ACF42 /* Sources */,
 				ABFA14402202CA83000ACF42 /* Frameworks */,
 				ABFA14412202CA83000ACF42 /* Resources */,
+				AB6811922203245100947531 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AB6811872203245100947531 /* PBXTargetDependency */,
+				AB68118A2203245100947531 /* PBXTargetDependency */,
 			);
 			name = rootKit;
 			productName = rootKit;
@@ -309,6 +448,12 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Lakr Sakura";
 				TargetAttributes = {
+					AB68116B2203245000947531 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					AB68117C2203245000947531 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					ABFA14422202CA83000ACF42 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -328,11 +473,28 @@
 			projectRoot = "";
 			targets = (
 				ABFA14422202CA83000ACF42 /* rootKit */,
+				AB68116B2203245000947531 /* FileProvider */,
+				AB68117C2203245000947531 /* FileProviderUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AB68116A2203245000947531 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB68117B2203245000947531 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB6811842203245100947531 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ABFA14412202CA83000ACF42 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -347,6 +509,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AB6811682203245000947531 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB6811762203245000947531 /* FileProviderEnumerator.m in Sources */,
+				AB6811702203245000947531 /* FileProviderExtension.m in Sources */,
+				AB6811732203245000947531 /* FileProviderItem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB6811792203245000947531 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB6811812203245100947531 /* DocumentActionViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ABFA143F2202CA83000ACF42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -374,6 +554,7 @@
 				ABFA14F72202D7FD000ACF42 /* kernel_memory.c in Sources */,
 				ABFA14562202CA84000ACF42 /* main.m in Sources */,
 				ABFA14F32202D7FD000ACF42 /* kc_parameters.c in Sources */,
+				AB0E9F5522035FCB001E9502 /* Extension.m in Sources */,
 				ABFA14F52202D7FD000ACF42 /* platform.c in Sources */,
 				ABFA15122202DBE7000ACF42 /* exploit_additions.c in Sources */,
 				ABFA14F02202D7FD000ACF42 /* platform_match.c in Sources */,
@@ -383,7 +564,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AB6811872203245100947531 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB68117C2203245000947531 /* FileProviderUI */;
+			targetProxy = AB6811862203245100947531 /* PBXContainerItemProxy */;
+		};
+		AB68118A2203245100947531 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB68116B2203245000947531 /* FileProvider */;
+			targetProxy = AB6811892203245100947531 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		AB6811822203245100947531 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB6811832203245100947531 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		ABFA144C2202CA83000ACF42 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -403,6 +605,84 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AB68118D2203245100947531 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38X2VQKPXT;
+				INFOPLIST_FILE = FileProviderUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lake.research.rootKit.FileProviderUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB68118E2203245100947531 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38X2VQKPXT;
+				INFOPLIST_FILE = FileProviderUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lake.research.rootKit.FileProviderUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AB6811902203245100947531 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FileProvider/FileProvider.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38X2VQKPXT;
+				INFOPLIST_FILE = FileProvider/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lake.research.rootKit.FileProvider;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB6811912203245100947531 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FileProvider/FileProvider.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38X2VQKPXT;
+				INFOPLIST_FILE = FileProvider/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lake.research.rootKit.FileProvider;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		ABFA14572202CA84000ACF42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -454,7 +734,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -507,7 +787,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -574,6 +854,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AB68118C2203245100947531 /* Build configuration list for PBXNativeTarget "FileProviderUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB68118D2203245100947531 /* Debug */,
+				AB68118E2203245100947531 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB68118F2203245100947531 /* Build configuration list for PBXNativeTarget "FileProvider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB6811902203245100947531 /* Debug */,
+				AB6811912203245100947531 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ABFA143E2202CA83000ACF42 /* Build configuration list for PBXProject "rootKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
