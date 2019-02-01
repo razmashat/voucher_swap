@@ -77,6 +77,9 @@ int countItemInThePath(NSString *thisPath) {
 
 bool isThisDirectory(NSString *thisPath) {
     BOOL isDirectory;
+    if ([thisPath hasSuffix:@".plist"]) {
+        return false;
+    }
     BOOL fileExistsAtPath = [[NSFileManager defaultManager] fileExistsAtPath:thisPath isDirectory:&isDirectory];
     if (fileExistsAtPath && isDirectory) {
         return YES;

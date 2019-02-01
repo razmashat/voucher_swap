@@ -52,7 +52,7 @@
     NSString *deviceInfo = [[NSString alloc] initWithFormat:@"\n          %s\n          %s  %s", u.version, u.nodename, u.machine];
     _outPutWindow.text = [[_outPutWindow text] stringByAppendingString: deviceInfo];
     setUserLandHome([NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,    NSUserDomainMask, YES)objectAtIndex:0]);
-    
+//    [NSFileManager defaultManager]
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -344,22 +344,29 @@
     }else{
         // Let's copy file to our doc direct.
         NSString *filePath = [readUserlandHome() stringByAppendingPathComponent:currentFileList[indexPath.row]];
-        
+
         [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
         [[NSFileManager defaultManager] copyItemAtPath:fullPathForThisFile toPath:filePath error:nil];
-
+        NSDictionary *attr=[NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedLong:0777U] forKey:NSFilePosixPermissions];
+        [[NSFileManager defaultManager] setAttributes:attr ofItemAtPath:filePath error:nil];
+        
         NSURL *fileUrl     = [NSURL fileURLWithPath:filePath isDirectory:NO];
         NSArray *activityItems = @[fileUrl];
         UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-        //if iPhone
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            [self presentViewController:activityController animated:YES completion:nil];
-        }
-        //if iPad
-        else {
-            // Change Rect to position Popover
-            UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:activityController];
-            [popup presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/4, 0, 0)inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        
+        if (isRootNow()) {
+            self->_errorLabel.text = @"We can't share file as root. But we copied it to home.";
+        }else{
+            //if iPhone
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+                [self presentViewController:activityController animated:YES completion:nil];
+            }
+            //if iPad
+            else {
+                // Change Rect to position Popover
+                UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:activityController];
+                [popup presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/4, 0, 0)inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+            }
         }
         
     }
