@@ -138,13 +138,62 @@
         NSLog(@"long press on table view but not on a row");
     } else if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
         NSLog(@"long press on table view at row %ld", indexPath.row);
+        NSString *thisFileName = currentFileList[indexPath.row];
+        NSString *thisFilePath;
         if ([currentPath isEqualToString:@"/"]) {
-            copyFilePath = [[NSString alloc] initWithFormat:@"%@%@", currentPath, currentFileList[indexPath.row]];
+            thisFilePath = [[NSString alloc] initWithFormat:@"%@%@", currentPath, currentFileList[indexPath.row]];
         }else{
-            copyFilePath = [[NSString alloc] initWithFormat:@"%@/%@", currentPath, currentFileList[indexPath.row]];
-            copyFileName = currentFileList[indexPath.row];
+            thisFilePath = [[NSString alloc] initWithFormat:@"%@/%@", currentPath, currentFileList[indexPath.row]];
         }
-        _errorLabel.text = @"Touched to clip board.";
+        
+        
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Command?"
+                                                                       message:@"This is an alert."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* copyAction = [UIAlertAction actionWithTitle:@"Copy it!" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {
+                                                                  self->_errorLabel.text = @"Touched to clip board.";
+                                                                  self->copyFileName = thisFileName;
+                                                                  self->copyFilePath = thisFilePath;
+                                                              }];
+        UIAlertAction* renameAction = [UIAlertAction actionWithTitle:@"Rename it!" style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * action) {
+                                                                 UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Name?"
+                                                                                                                                           message: nil
+                                                                                                                                    preferredStyle:UIAlertControllerStyleAlert];
+                                                                 [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                                                                     textField.placeholder = @"name";
+                                                                     textField.textColor = [UIColor blueColor];
+                                                                     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+                                                                     textField.borderStyle = UITextBorderStyleRoundedRect;
+                                                                 }];
+                                                                 [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                                                                     NSArray * textfields = alertController.textFields;
+                                                                     UITextField * namefield = textfields[0];
+                                                                     if ([namefield.text isEqualToString:@""]) {
+                                                                         return;
+                                                                     }
+                                                                     NSString *destFilePath = [[dropLastContentOfSplash(thisFilePath) stringByAppendingString:@"/"] stringByAppendingString:thisFileName];
+                                                                     NSError *errrrr;
+                                                                     [[NSFileManager defaultManager] moveItemAtPath:thisFilePath toPath:destFilePath error:&errrrr];
+                                                                     if (errrrr != nil) {
+                                                                         printf("Soemthing wrong!\n");
+                                                                         NSLog(@"%@", errrrr);
+                                                                         self->_errorLabel.text = @"Failed to rename!";
+                                                                     }
+                                                                 }]];
+                                                                 [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {NSLog(@"Canceled");}]];
+                                                                 [self presentViewController:alertController animated:YES completion:nil];
+                                                             }];
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Rename it!" style:UIAlertActionStyleDefault
+                                                             handler:nil];
+        
+        [alert addAction:copyAction];
+        [alert addAction:renameAction];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
     } else {
         NSLog(@"gestureRecognizer.state = %ld", gestureRecognizer.state);
     }
@@ -284,8 +333,7 @@
         _URLText.text = currentPath;
     }else{
         // Let's copy file to our doc direct.
-        NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,    NSUserDomainMask, YES)objectAtIndex:0];
-        NSString *filePath = [docPath stringByAppendingPathComponent:currentFileList[indexPath.row]];
+        NSString *filePath = [readUserlandHome() stringByAppendingPathComponent:currentFileList[indexPath.row]];
         
         [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
         [[NSFileManager defaultManager] copyItemAtPath:fullPathForThisFile toPath:filePath error:nil];
