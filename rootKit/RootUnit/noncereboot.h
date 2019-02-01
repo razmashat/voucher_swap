@@ -21,5 +21,6 @@ enum {
 };
 
 int start_noncereboot(mach_port_t tfp0);
+int read_kern_base(void);
 
 #endif /* noncereboot_h */

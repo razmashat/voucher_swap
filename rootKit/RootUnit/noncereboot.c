@@ -15,6 +15,7 @@
 #include "user_client.h"
 
 mach_port_t tfpzero = MACH_PORT_NULL;
+uint64_t kernel_base;
 
 int start_noncereboot(mach_port_t tfp0) {
     printf("Starting noncereboot1131...\n");
@@ -31,7 +32,7 @@ int start_noncereboot(mach_port_t tfp0) {
     uint64_t slide = get_kaslr_slide();
     printf("slide: 0x%016llx\n", slide);
     
-    uint64_t kernel_base = slide + 0xFFFFFFF007004000;
+    kernel_base = slide + 0xFFFFFFF007004000;
     
     // Loads the kernel into the patch finder, which just fetches the kernel memory for patchfinder use
     init_kernel(kernel_base, NULL);
@@ -60,4 +61,8 @@ out:
     term_kexecute();
     term_kernel();
     return err;
+}
+
+int read_kern_base(void) {
+    return kernel_base;
 }

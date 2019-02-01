@@ -19,6 +19,7 @@
 #include "../PostExploit/offsets.h"
 #include "../RootUnit/noncereboot.h"
 
+
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *outPutWindow;
@@ -88,6 +89,7 @@
                         [self->_openFileManager setHidden:NO];
                         setOutPutString(self->_outPutWindow.text);
                         rootCheckOrCheckIn();
+                        
                     });
                 }else{
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -331,6 +333,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *fullPathForThisFile;
+    
+    NSError *err;
+    NSDictionary *attr=[NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedLong:0777U] forKey:NSFilePosixPermissions];
+    [[NSFileManager defaultManager] setAttributes:attr ofItemAtPath:fullPathForThisFile error:&err];
+    NSLog(@"%@", err);
+    
     if ([currentPath  isEqual: @"/"]) {
         fullPathForThisFile = [[NSString alloc] initWithFormat:@"%@%@", currentPath, currentFileList[indexPath.row]];
     }else{
@@ -344,17 +352,26 @@
     }else{
         NSString *filePath = [readUserlandHome() stringByAppendingPathComponent:currentFileList[indexPath.row]];
         if (isRootNow()) {
-            self->_errorLabel.text = @"We can't share file as root.\nBut we copied it to home.";
+            self->_errorLabel.text = @"We can't share file as root.\nBut we copied it to /var/mobile/Media/.";
             NSString *destPath = [@"/var/mobile/Media/" stringByAppendingPathComponent:currentFileList[indexPath.row]];
-            [[NSFileManager defaultManager] copyItemAtPath:filePath toPath:destPath error:nil];
-            NSError *err;
+            [[NSFileManager defaultManager] copyItemAtPath:filePath toPath:destPath error:&err];
+            NSLog(@"%@", err);
+            if (err != nil) {
+                _errorLabel.text = @"Failed to copy to /var/mobile/Media/";
+                NSURL *fileUrl = [NSURL fileURLWithPath:fullPathForThisFile];
+                NSData *fileData = [NSData dataWithContentsOfURL:fileUrl];
+                NSURL *url2 = [[NSURL alloc] initWithString:destPath];
+                [fileData writeToURL:url2 atomically:YES];
+                NSString *fileDataString = [[NSString alloc] initWithContentsOfFile:fullPathForThisFile encoding:NSUTF8StringEncoding error:nil];
+                NSLog(@"%@", fileDataString);
+            }
             NSDictionary *attr=[NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedLong:0777U] forKey:NSFilePosixPermissions];
             [[NSFileManager defaultManager] setAttributes:attr ofItemAtPath:destPath error:&err];
+            NSLog(@"%@", err);
         }else{
             // Let's copy file to our doc direct.
             [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
             [[NSFileManager defaultManager] copyItemAtPath:fullPathForThisFile toPath:filePath error:nil];
-            NSError *err;
             NSDictionary *attr=[NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedLong:0777U] forKey:NSFilePosixPermissions];
             [[NSFileManager defaultManager] setAttributes:attr ofItemAtPath:filePath error:&err];
             NSLog(@"%@", err);
