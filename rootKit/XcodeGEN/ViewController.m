@@ -342,21 +342,26 @@
         tableView.reloadData;
         _URLText.text = currentPath;
     }else{
-        // Let's copy file to our doc direct.
         NSString *filePath = [readUserlandHome() stringByAppendingPathComponent:currentFileList[indexPath.row]];
-
-        [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
-        [[NSFileManager defaultManager] copyItemAtPath:fullPathForThisFile toPath:filePath error:nil];
-        NSDictionary *attr=[NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedLong:0777U] forKey:NSFilePosixPermissions];
-        [[NSFileManager defaultManager] setAttributes:attr ofItemAtPath:filePath error:nil];
-        
-        NSURL *fileUrl     = [NSURL fileURLWithPath:filePath isDirectory:NO];
-        NSArray *activityItems = @[fileUrl];
-        UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-        
         if (isRootNow()) {
-            self->_errorLabel.text = @"We can't share file as root. But we copied it to home.";
+            self->_errorLabel.text = @"We can't share file as root.\nBut we copied it to home.";
+            NSString *destPath = [@"/var/mobile/Media/" stringByAppendingPathComponent:currentFileList[indexPath.row]];
+            [[NSFileManager defaultManager] copyItemAtPath:filePath toPath:destPath error:nil];
+            NSError *err;
+            NSDictionary *attr=[NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedLong:0777U] forKey:NSFilePosixPermissions];
+            [[NSFileManager defaultManager] setAttributes:attr ofItemAtPath:destPath error:&err];
         }else{
+            // Let's copy file to our doc direct.
+            [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+            [[NSFileManager defaultManager] copyItemAtPath:fullPathForThisFile toPath:filePath error:nil];
+            NSError *err;
+            NSDictionary *attr=[NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedLong:0777U] forKey:NSFilePosixPermissions];
+            [[NSFileManager defaultManager] setAttributes:attr ofItemAtPath:filePath error:&err];
+            NSLog(@"%@", err);
+            
+            NSURL *fileUrl     = [NSURL fileURLWithPath:filePath isDirectory:NO];
+            NSArray *activityItems = @[fileUrl];
+            UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
             //if iPhone
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
                 [self presentViewController:activityController animated:YES completion:nil];
