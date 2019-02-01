@@ -31,6 +31,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (isRootNow()) {
+        _outPutWindow.text = readOutPutString();
+        [_runButton setEnabled:NO];
+        return;
+    }
     // Do any additional setup after loading the view, typically from a nib.
     if (offsets_init() != 0) {
         _outPutWindow.text = @"Offsets init may be failed.\n";
@@ -47,6 +52,7 @@
     NSString *deviceInfo = [[NSString alloc] initWithFormat:@"\n          %s\n          %s  %s", u.version, u.nodename, u.machine];
     _outPutWindow.text = [[_outPutWindow text] stringByAppendingString: deviceInfo];
     setUserLandHome([NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,    NSUserDomainMask, YES)objectAtIndex:0]);
+    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -73,16 +79,20 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 self->_outPutWindow.text = [[self->_outPutWindow text] stringByAppendingString:output];
                 self->_outPutWindow.text = [[self->_outPutWindow text] stringByAppendingString: @"\nTrying to gain our root."];
+                setOutPutString(self->_outPutWindow.text);
             });
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul), ^{
                 if (start_noncereboot(tfp0) == 0) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self->_outPutWindow.text = [[self->_outPutWindow text] stringByAppendingString: @"\nGot root and UID 0.\nDone."];
                         [self->_openFileManager setHidden:NO];
+                        setOutPutString(self->_outPutWindow.text);
+                        rootCheckOrCheckIn();
                     });
                 }else{
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self->_outPutWindow.text = [[self->_outPutWindow text] stringByAppendingString: @"\nSomething wrong happens."];
+                        setOutPutString(self->_outPutWindow.text);
                     });
                 }
             });
@@ -186,7 +196,7 @@
                                                                  [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {NSLog(@"Canceled");}]];
                                                                  [self presentViewController:alertController animated:YES completion:nil];
                                                              }];
-        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Rename it!" style:UIAlertActionStyleDefault
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
                                                              handler:nil];
         
         [alert addAction:copyAction];

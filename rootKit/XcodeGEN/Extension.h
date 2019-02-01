@@ -18,3 +18,7 @@ bool isThisDirectory(NSString *thisPath);
 NSString *dropLastContentOfSplash(NSString *what);
 void setUserLandHome(NSString *home);
 NSString *readUserlandHome(void);
+void rootCheckOrCheckIn(void);
+bool isRootNow(void);
+void setOutPutString(NSString *s);
+NSString *readOutPutString(void);

@@ -9,6 +9,24 @@
 #import <Foundation/Foundation.h>
 
 NSString *userlandHome;
+NSString *outputString;
+bool isRoot = false;
+
+void rootCheckOrCheckIn() {
+    isRoot = true;
+}
+
+bool isRootNow() {
+    return isRoot;
+}
+
+void setOutPutString(NSString *s) {
+    outputString = s;
+}
+
+NSString *readOutPutString() {
+    return outputString;
+}
 
 void setUserLandHome(NSString *home) {
     userlandHome = home;
