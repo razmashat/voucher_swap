@@ -57,8 +57,6 @@
 /* Begin PBXFileReference section */
 		AB0E9F5422035FCB001E9502 /* Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Extension.m; sourceTree = "<group>"; };
 		AB0E9F5622035FD4001E9502 /* Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Extension.h; sourceTree = "<group>"; };
-		AB68116C2203245000947531 /* FileProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FileProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB68117D2203245000947531 /* FileProviderUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FileProviderUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFA14432202CA83000ACF42 /* rootKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rootKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFA14462202CA83000ACF42 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ABFA14472202CA83000ACF42 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -128,20 +126,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AB6811692203245000947531 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AB68117A2203245000947531 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ABFA14402202CA83000ACF42 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,8 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				ABFA14432202CA83000ACF42 /* rootKit.app */,
-				AB68116C2203245000947531 /* FileProvider.appex */,
-				AB68117D2203245000947531 /* FileProviderUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -319,40 +301,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AB68116B2203245000947531 /* FileProvider */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AB68118F2203245100947531 /* Build configuration list for PBXNativeTarget "FileProvider" */;
-			buildPhases = (
-				AB6811682203245000947531 /* Sources */,
-				AB6811692203245000947531 /* Frameworks */,
-				AB68116A2203245000947531 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = FileProvider;
-			productName = FileProvider;
-			productReference = AB68116C2203245000947531 /* FileProvider.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		AB68117C2203245000947531 /* FileProviderUI */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AB68118C2203245100947531 /* Build configuration list for PBXNativeTarget "FileProviderUI" */;
-			buildPhases = (
-				AB6811792203245000947531 /* Sources */,
-				AB68117A2203245000947531 /* Frameworks */,
-				AB68117B2203245000947531 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = FileProviderUI;
-			productName = FileProviderUI;
-			productReference = AB68117D2203245000947531 /* FileProviderUI.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		ABFA14422202CA83000ACF42 /* rootKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ABFA14592202CA84000ACF42 /* Build configuration list for PBXNativeTarget "rootKit" */;
@@ -380,12 +328,6 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Lakr Sakura";
 				TargetAttributes = {
-					AB68116B2203245000947531 = {
-						CreatedOnToolsVersion = 10.1;
-					};
-					AB68117C2203245000947531 = {
-						CreatedOnToolsVersion = 10.1;
-					};
 					ABFA14422202CA83000ACF42 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -405,27 +347,11 @@
 			projectRoot = "";
 			targets = (
 				ABFA14422202CA83000ACF42 /* rootKit */,
-				AB68116B2203245000947531 /* FileProvider */,
-				AB68117C2203245000947531 /* FileProviderUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AB68116A2203245000947531 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AB68117B2203245000947531 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ABFA14412202CA83000ACF42 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -440,20 +366,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AB6811682203245000947531 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AB6811792203245000947531 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ABFA143F2202CA83000ACF42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -511,84 +423,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		AB68118D2203245100947531 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38X2VQKPXT;
-				INFOPLIST_FILE = FileProviderUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lake.research.rootKit.FileProviderUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		AB68118E2203245100947531 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38X2VQKPXT;
-				INFOPLIST_FILE = FileProviderUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lake.research.rootKit.FileProviderUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		AB6811902203245100947531 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = FileProvider/FileProvider.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38X2VQKPXT;
-				INFOPLIST_FILE = FileProvider/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lake.research.rootKit.FileProvider;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		AB6811912203245100947531 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = FileProvider/FileProvider.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38X2VQKPXT;
-				INFOPLIST_FILE = FileProvider/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lake.research.rootKit.FileProvider;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		ABFA14572202CA84000ACF42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -760,24 +594,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AB68118C2203245100947531 /* Build configuration list for PBXNativeTarget "FileProviderUI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AB68118D2203245100947531 /* Debug */,
-				AB68118E2203245100947531 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AB68118F2203245100947531 /* Build configuration list for PBXNativeTarget "FileProvider" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AB6811902203245100947531 /* Debug */,
-				AB6811912203245100947531 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		ABFA143E2202CA83000ACF42 /* Build configuration list for PBXProject "rootKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
