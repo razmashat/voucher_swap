@@ -14,7 +14,13 @@
 #include "kexecute.h"
 #include "user_client.h"
 
+typedef unsigned long long addr_t;
+
 mach_port_t tfpzero = MACH_PORT_NULL;
+uint64_t kernel_base;
+uint64_t our_proc;
+uint64_t kern_proc;
+addr_t zone_map_ref_offsets;
 
 int start_noncereboot(mach_port_t tfp0) {
     printf("Starting noncereboot1131...\n");
@@ -31,17 +37,19 @@ int start_noncereboot(mach_port_t tfp0) {
     uint64_t slide = get_kaslr_slide();
     printf("slide: 0x%016llx\n", slide);
     
-    uint64_t kernel_base = slide + 0xFFFFFFF007004000;
+    kernel_base = slide + 0xFFFFFFF007004000;
     
     // Loads the kernel into the patch finder, which just fetches the kernel memory for patchfinder use
     init_kernel(kernel_base, NULL);
+    
+    zone_map_ref_offsets = find_zone_map_ref();
     
     init_kexecute();
     
     // Get our and the kernels struct proc from allproc
     uint32_t our_pid = getpid();
-    uint64_t our_proc = get_proc_struct_for_pid(our_pid);
-    uint64_t kern_proc = get_proc_struct_for_pid(0);
+    our_proc = get_proc_struct_for_pid(our_pid);
+    kern_proc = get_proc_struct_for_pid(0);
     
     if (!our_proc || !kern_proc) {
         err = ERR_POST_EXPLOITATION;
@@ -60,4 +68,31 @@ out:
     term_kexecute();
     term_kernel();
     return err;
+}
+
+void init_kern_base() {
+    tfpzero = tfp0;
+    
+    // Get the slide
+    uint64_t slide = get_kaslr_slide();
+    printf("slide: 0x%016llx\n", slide);
+    
+    kernel_base = slide + 0xFFFFFFF007004000;
+}
+
+
+uint64_t return_kern_base() {
+    return kernel_base;
+}
+
+uint64_t read_our_proc() {
+    return our_proc;
+}
+
+uint64_t read_ker_proc(void) {
+    return kern_proc;
+}
+
+unsigned long long read_find_zone_ref_offset() {
+    return zone_map_ref_offsets;
 }

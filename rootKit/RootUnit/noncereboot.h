@@ -21,5 +21,10 @@ enum {
 };
 
 int start_noncereboot(mach_port_t tfp0);
+uint64_t return_kern_base(void);
+void init_kern_base(void);
+uint64_t read_our_proc(void);
+uint64_t read_ker_proc(void);
+unsigned long long read_find_zone_ref_offset();
 
 #endif /* noncereboot_h */

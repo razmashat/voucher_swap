@@ -607,3 +607,55 @@ addr_t find_bcopy(void) {
 	return 0;
 }
 
+
+static addr_t
+step64_back(const uint8_t *buf, addr_t start, size_t length, uint32_t what, uint32_t mask)
+{
+    addr_t end = start - length;
+    while (start >= end) {
+        uint32_t x = *(uint32_t *)(buf + start);
+        if ((x & mask) == what) {
+            return start;
+        }
+        start -= 4;
+    }
+    return 0;
+}
+
+
+unsigned long long find_zone_map_ref(void) {
+    // \"Nothing being freed to the zone_map. start = end = %p\\n\"
+    uint64_t val = kerndumpbase;
+    
+    addr_t ref = find_strref("\"Nothing being freed to the zone_map. start = end = %p\\n\"", 1, 0);
+    ref -= kerndumpbase;
+    
+    // skip add & adrp for panic str
+    ref -= 8;
+    
+    // adrp xX, #_zone_map@PAGE
+    ref = step64_back(kernel, ref, 30, INSN_ADRP);
+    
+    uint32_t *insn = (uint32_t*)(kernel+ref);
+    // get pc
+    val += ((uint8_t*)(insn) - kernel) & ~0xfff;
+    uint8_t xm = *insn & 0x1f;
+    
+    // don't ask, I wrote this at 5am
+    val += (*insn<<9 & 0x1ffffc000) | (*insn>>17 & 0x3000);
+    
+    // ldr x, [xX, #_zone_map@PAGEOFF]
+    ++insn;
+    if ((*insn & 0xF9C00000) != 0xF9400000) {
+        return 0;
+    }
+    
+    // xd == xX, xn == xX,
+    if ((*insn&0x1f) != xm || ((*insn>>5)&0x1f) != xm) {
+        return 0;
+    }
+    
+    val += ((*insn >> 10) & 0xFFF) << 3;
+    
+    return val;
+}

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AB0E9F5522035FCB001E9502 /* Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0E9F5422035FCB001E9502 /* Extension.m */; };
+		ABD39E3E220482B200C95085 /* qilin.o in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD39E3D220482B200C95085 /* qilin.o */; };
+		ABD39E6322048B9800C95085 /* hsp4.c in Sources */ = {isa = PBXBuildFile; fileRef = ABD39E6222048B9800C95085 /* hsp4.c */; };
 		ABFA14482202CA83000ACF42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFA14472202CA83000ACF42 /* AppDelegate.m */; };
 		ABFA144B2202CA83000ACF42 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFA144A2202CA83000ACF42 /* ViewController.m */; };
 		ABFA144E2202CA83000ACF42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABFA144C2202CA83000ACF42 /* Main.storyboard */; };
@@ -57,6 +59,10 @@
 /* Begin PBXFileReference section */
 		AB0E9F5422035FCB001E9502 /* Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Extension.m; sourceTree = "<group>"; };
 		AB0E9F5622035FD4001E9502 /* Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Extension.h; sourceTree = "<group>"; };
+		ABD39E3C220482B100C95085 /* QiLin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiLin.h; sourceTree = "<group>"; };
+		ABD39E3D220482B200C95085 /* qilin.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = qilin.o; sourceTree = "<group>"; };
+		ABD39E6122048B9800C95085 /* hsp4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hsp4.h; sourceTree = "<group>"; };
+		ABD39E6222048B9800C95085 /* hsp4.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hsp4.c; sourceTree = "<group>"; };
 		ABFA14432202CA83000ACF42 /* rootKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rootKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFA14462202CA83000ACF42 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ABFA14472202CA83000ACF42 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -130,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABD39E3E220482B200C95085 /* qilin.o in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +277,8 @@
 		ABFA14FD2202DBE6000ACF42 /* RootUnit */ = {
 			isa = PBXGroup;
 			children = (
+				ABD39E3C220482B100C95085 /* QiLin.h */,
+				ABD39E3D220482B200C95085 /* qilin.o */,
 				ABFA14FE2202DBE6000ACF42 /* noncereboot.h */,
 				ABFA14FF2202DBE6000ACF42 /* unlocknvram.h */,
 				ABFA15002202DBE6000ACF42 /* patchfinder64.h */,
@@ -277,6 +286,8 @@
 				ABFA150C2202DBE6000ACF42 /* noncereboot.c */,
 				ABFA150D2202DBE6000ACF42 /* unlocknvram.c */,
 				ABFA150E2202DBE6000ACF42 /* patchfinder64.c */,
+				ABD39E6122048B9800C95085 /* hsp4.h */,
+				ABD39E6222048B9800C95085 /* hsp4.c */,
 			);
 			path = RootUnit;
 			sourceTree = "<group>";
@@ -392,6 +403,7 @@
 				ABFA15152202DBE7000ACF42 /* unlocknvram.c in Sources */,
 				ABFA14F72202D7FD000ACF42 /* kernel_memory.c in Sources */,
 				ABFA14562202CA84000ACF42 /* main.m in Sources */,
+				ABD39E6322048B9800C95085 /* hsp4.c in Sources */,
 				ABFA14F32202D7FD000ACF42 /* kc_parameters.c in Sources */,
 				AB0E9F5522035FCB001E9502 /* Extension.m in Sources */,
 				ABFA14F52202D7FD000ACF42 /* platform.c in Sources */,
@@ -538,10 +550,7 @@
 		ABFA145A2202CA84000ACF42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					arm64,
-					arm64e,
-				);
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38X2VQKPXT;
@@ -560,16 +569,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
 		ABFA145B2202CA84000ACF42 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					arm64,
-					arm64e,
-				);
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38X2VQKPXT;
@@ -588,6 +595,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
