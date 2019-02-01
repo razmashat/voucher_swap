@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+NSString *userlandHome;
+
+void setUserLandHome(NSString *home) {
+    userlandHome = home;
+}
+
+NSString *readUserlandHome() {
+    return userlandHome;
+}
+
 NSArray *catchContentUnderPath(NSString *thisPath) {
     
     NSError *error;
@@ -26,7 +36,15 @@ NSArray *catchContentUnderPath(NSString *thisPath) {
     //
     //    NSArray *allFiles = [NSArray alloc] init
     
-    return contentFolder;
+    NSStringCompareOptions comparisonOptions = NSCaseInsensitiveSearch|NSNumericSearch|
+    NSWidthInsensitiveSearch|NSForcedOrderingSearch;
+    NSComparator sort = ^(NSString *obj1,NSString *obj2){
+        NSRange range = NSMakeRange(0,obj1.length);
+        return [obj1 compare:obj2 options:comparisonOptions range:range];
+    };
+    NSArray *resultArray = [contentFolder sortedArrayUsingComparator:sort];
+
+    return resultArray;
 }
 
 int countItemInThePath(NSString *thisPath) {

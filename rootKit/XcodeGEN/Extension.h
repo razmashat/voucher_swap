@@ -16,3 +16,5 @@ NSArray *catchContentUnderPath(NSString *thisPath);
 int countItemInThePath(NSString *thisPath);
 bool isThisDirectory(NSString *thisPath);
 NSString *dropLastContentOfSplash(NSString *what);
+void setUserLandHome(NSString *home);
+NSString *readUserlandHome(void);

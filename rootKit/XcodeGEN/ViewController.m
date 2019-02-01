@@ -46,7 +46,14 @@
 //    };
     NSString *deviceInfo = [[NSString alloc] initWithFormat:@"\n          %s\n          %s  %s", u.version, u.nodename, u.machine];
     _outPutWindow.text = [[_outPutWindow text] stringByAppendingString: deviceInfo];
+    setUserLandHome([NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,    NSUserDomainMask, YES)objectAtIndex:0]);
+}
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch * touch = [touches anyObject];
+    if(touch.phase == UITouchPhaseBegan) {
+        [_outPutWindow resignFirstResponder];
+    }
 }
 
 - (IBAction)postExploit:(id)sender {
@@ -114,6 +121,14 @@
     [self.tableView addGestureRecognizer:lpgr];
 
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch * touch = [touches anyObject];
+    if(touch.phase == UITouchPhaseBegan) {
+        [_URLText resignFirstResponder];
+    }
+}
+
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
 {
     CGPoint p = [gestureRecognizer locationInView:self.tableView];
@@ -162,8 +177,7 @@
 }
 
 - (IBAction)wentToHome:(id)sender {
-    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,    NSUserDomainMask, YES)objectAtIndex:0];
-    currentPath = dropLastContentOfSplash(docPath);
+    currentPath = dropLastContentOfSplash(readUserlandHome());
     currentFileList = catchContentUnderPath(currentPath);
     _tableView.reloadData;
     _URLText.text = currentPath;
@@ -179,6 +193,9 @@
         dest = [[NSString alloc] initWithFormat:@"%@%@", currentPath, copyFileName];
     }else{
         dest = [[NSString alloc] initWithFormat:@"%@/%@", currentPath, copyFileName];
+    }
+    while ([[NSFileManager defaultManager] fileExistsAtPath:dest]) {
+        dest = [dest stringByAppendingString:@".copy"];
     }
     NSError *err;
     [[NSFileManager defaultManager] copyItemAtPath:copyFilePath toPath:dest error:&err];
@@ -231,7 +248,7 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     static NSString *cellID = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    cell.textLabel.text = currentFileList[indexPath.row];
+    cell.textLabel.text = [@"  " stringByAppendingString: currentFileList[indexPath.row]];
     NSString *fullPathForThisFile;
     if ([currentPath isEqualToString:@"/"]){
         fullPathForThisFile = [[NSString alloc] initWithFormat:@"%@%@", currentPath, currentFileList[indexPath.row]];
