@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -18,14 +23,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xspiralwallpaper.png" translatesAutoresizingMaskIntoConstraints="NO" id="H37-Nt-8Ot">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xSpiral RootKit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efZ-NM-efy">
                                 <rect key="frame" x="38" y="68" width="299" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="299" id="NQ9-dY-RXM"/>
                                     <constraint firstAttribute="height" constant="58" id="u03-wY-eeX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="insider Preview Alpha 1.1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fm2-ZN-7kh">
@@ -35,7 +43,7 @@
                                     <constraint firstAttribute="height" constant="21" id="9tU-pa-y7b"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFA-kJ-jjW">
@@ -44,18 +52,22 @@
                                     <constraint firstAttribute="width" constant="114" id="3kR-hj-oaY"/>
                                     <constraint firstAttribute="height" constant="30" id="EYs-MB-rWG"/>
                                 </constraints>
-                                <state key="normal" title="Gain Root Here~"/>
+                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="25"/>
+                                <state key="normal" title="Root Me">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="postExploit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E0e-fq-WKQ"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Device Info:" translatesAutoresizingMaskIntoConstraints="NO" id="hg6-Lf-p3n">
                                 <rect key="frame" x="50" y="361" width="275" height="256"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.093274111675126892" green="0.093274111675126892" blue="0.093274111675126892" alpha="0.43471746575342468" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="256" id="iLp-1M-jsl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldZ-q8-Zq4">
@@ -64,7 +76,10 @@
                                     <constraint firstAttribute="height" constant="30" id="YHk-FE-7rw"/>
                                     <constraint firstAttribute="width" constant="129" id="a8t-3h-aL0"/>
                                 </constraints>
-                                <state key="normal" title="Open File Manager"/>
+                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="12"/>
+                                <state key="normal" title="Open File Manager">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="Vtj-gy-g3J" kind="show" id="Y2I-Yd-VKc"/>
                                 </connections>
@@ -72,16 +87,20 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="H37-Nt-8Ot" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="1dj-lT-cx7"/>
                             <constraint firstItem="efZ-NM-efy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="48" id="4go-bf-Hdh"/>
                             <constraint firstItem="XFA-kJ-jjW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7vD-W8-HwK"/>
+                            <constraint firstItem="H37-Nt-8Ot" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="DAO-Yi-sbc"/>
                             <constraint firstItem="Fm2-ZN-7kh" firstAttribute="top" secondItem="efZ-NM-efy" secondAttribute="bottom" id="Ehs-IW-QK5"/>
                             <constraint firstItem="Fm2-ZN-7kh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MeQ-7k-kJP"/>
+                            <constraint firstItem="H37-Nt-8Ot" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PJI-Y5-Cgl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ldZ-q8-Zq4" secondAttribute="bottom" constant="20" id="SRP-A7-ZHh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ldZ-q8-Zq4" secondAttribute="trailing" constant="20" id="UA1-NN-1EM"/>
                             <constraint firstItem="efZ-NM-efy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XGj-YJ-hTU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hg6-Lf-p3n" secondAttribute="trailing" constant="50" id="Y2r-KE-jKH"/>
                             <constraint firstItem="XFA-kJ-jjW" firstAttribute="top" secondItem="Fm2-ZN-7kh" secondAttribute="bottom" constant="88" id="bjZ-W2-l7t"/>
                             <constraint firstItem="hg6-Lf-p3n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="gHb-fk-rfI"/>
+                            <constraint firstItem="H37-Nt-8Ot" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mFh-8q-HcB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hg6-Lf-p3n" secondAttribute="bottom" constant="50" id="sN6-EO-mKK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -104,24 +123,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xspiralwallpaper.png" translatesAutoresizingMaskIntoConstraints="NO" id="dW4-xx-kNa">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CB9-6D-Fcw">
                                 <rect key="frame" x="20" y="50" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="ZSZ-vX-ZvH"/>
                                     <constraint firstAttribute="height" constant="30" id="z6R-Ap-i4u"/>
                                 </constraints>
-                                <state key="normal" title="&lt;-"/>
+                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="28"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="goBack:" destination="Vtj-gy-g3J" eventType="touchUpInside" id="YiB-Lz-KTq"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="/" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="41U-SP-FxI">
                                 <rect key="frame" x="70" y="50" width="285" height="30"/>
+                                <color key="backgroundColor" red="0.093274111679999994" green="0.093274111679999994" blue="0.093274111679999994" alpha="0.43471746579999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="yiY-IW-tGO"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="refreshList:" destination="Vtj-gy-g3J" eventType="editingDidEnd" id="vGG-LJ-Tvv"/>
@@ -129,7 +155,7 @@
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pYH-Ed-NgG" customClass="FileListTableView">
                                 <rect key="frame" x="0.0" y="110" width="375" height="455"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="EwU-ol-8oB" detailTextLabel="MZU-cC-pQQ" rowHeight="84" style="IBUITableViewCellStyleValue1" id="4LD-ir-PD9">
                                         <rect key="frame" x="0.0" y="28" width="375" height="84"/>
@@ -142,7 +168,7 @@
                                                     <rect key="frame" x="15" y="29" width="41" height="26.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MZU-cC-pQQ">
@@ -154,6 +180,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.45034246575342468" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -167,7 +194,7 @@
                                     <constraint firstAttribute="height" constant="36" id="7ed-6P-IYt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUG-6g-JRq">
@@ -176,7 +203,10 @@
                                     <constraint firstAttribute="width" constant="54" id="Qfo-Qg-0Ph"/>
                                     <constraint firstAttribute="height" constant="30" id="egm-29-ypx"/>
                                 </constraints>
-                                <state key="normal" title="Home"/>
+                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="11"/>
+                                <state key="normal" title="Home Dir">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="wentToHome:" destination="Vtj-gy-g3J" eventType="touchUpInside" id="AoS-Yf-Rdo"/>
                                 </connections>
@@ -187,7 +217,10 @@
                                     <constraint firstAttribute="width" constant="54" id="Cpi-1K-7to"/>
                                     <constraint firstAttribute="height" constant="30" id="U7F-5Q-WvD"/>
                                 </constraints>
-                                <state key="normal" title="Paste"/>
+                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="11"/>
+                                <state key="normal" title="Paste">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="pasteFile:" destination="Vtj-gy-g3J" eventType="touchUpInside" id="seT-Or-K63"/>
                                 </connections>
@@ -198,10 +231,13 @@
                                     <constraint firstAttribute="height" constant="30" id="CxB-oc-69X"/>
                                     <constraint firstAttribute="width" constant="132" id="iug-i1-6jE"/>
                                 </constraints>
-                                <state key="normal" title="Go Back 2 Main VC"/>
+                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="11"/>
+                                <state key="normal" title="Back Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="pasteFile:" destination="Vtj-gy-g3J" eventType="touchUpInside" id="y2M-YF-vqB"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="RGa-oM-6Ye"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="FyW-hA-D4E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Of5-rQ-Cvg">
@@ -210,7 +246,10 @@
                                     <constraint firstAttribute="width" constant="54" id="9gu-an-L27"/>
                                     <constraint firstAttribute="height" constant="30" id="XzX-iF-Ly1"/>
                                 </constraints>
-                                <state key="normal" title="+"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="createFolder:" destination="Vtj-gy-g3J" eventType="touchUpInside" id="P6A-uD-HY4"/>
                                 </connections>
@@ -232,11 +271,15 @@
                             <constraint firstItem="iya-hb-JI9" firstAttribute="top" secondItem="Of5-rQ-Cvg" secondAttribute="bottom" constant="8" id="UGR-P5-Hbf"/>
                             <constraint firstItem="CB9-6D-Fcw" firstAttribute="leading" secondItem="wRp-iD-RLo" secondAttribute="leading" constant="20" id="V9S-g9-Xu0"/>
                             <constraint firstItem="wRp-iD-RLo" firstAttribute="trailing" secondItem="iya-hb-JI9" secondAttribute="trailing" constant="20" id="anX-mN-6Bi"/>
+                            <constraint firstItem="dW4-xx-kNa" firstAttribute="bottom" secondItem="wRp-iD-RLo" secondAttribute="bottom" id="czT-HW-81Z"/>
+                            <constraint firstItem="dW4-xx-kNa" firstAttribute="top" secondItem="2sV-Ad-wFU" secondAttribute="top" id="drU-eq-rSD"/>
                             <constraint firstAttribute="bottom" secondItem="iya-hb-JI9" secondAttribute="bottom" constant="20" id="eFd-Rg-QPp"/>
+                            <constraint firstItem="dW4-xx-kNa" firstAttribute="leading" secondItem="wRp-iD-RLo" secondAttribute="leading" id="iFV-3b-iXL"/>
                             <constraint firstItem="iya-hb-JI9" firstAttribute="top" secondItem="nS1-dt-LHC" secondAttribute="bottom" constant="8" id="lZm-8f-9Ih"/>
                             <constraint firstItem="wRp-iD-RLo" firstAttribute="trailing" secondItem="Of5-rQ-Cvg" secondAttribute="trailing" constant="20" id="ooz-iN-hHp"/>
                             <constraint firstItem="iya-hb-JI9" firstAttribute="top" secondItem="NWq-ZX-Afa" secondAttribute="bottom" constant="8" id="sYJ-jT-bjm"/>
                             <constraint firstItem="pYH-Ed-NgG" firstAttribute="trailing" secondItem="wRp-iD-RLo" secondAttribute="trailing" id="v34-j7-bKy"/>
+                            <constraint firstItem="dW4-xx-kNa" firstAttribute="trailing" secondItem="wRp-iD-RLo" secondAttribute="trailing" id="zp2-4A-bbp"/>
                             <constraint firstItem="NWq-ZX-Afa" firstAttribute="leading" secondItem="vUG-6g-JRq" secondAttribute="trailing" constant="8" id="zt7-u6-EpH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wRp-iD-RLo"/>
@@ -252,4 +295,7 @@
             <point key="canvasLocation" x="856.79999999999995" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="xspiralwallpaper.png" width="1080" height="1920"/>
+    </resources>
 </document>

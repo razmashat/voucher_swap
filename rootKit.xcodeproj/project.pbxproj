@@ -39,6 +39,8 @@
 		ABFA15142202DBE7000ACF42 /* noncereboot.c in Sources */ = {isa = PBXBuildFile; fileRef = ABFA150C2202DBE6000ACF42 /* noncereboot.c */; };
 		ABFA15152202DBE7000ACF42 /* unlocknvram.c in Sources */ = {isa = PBXBuildFile; fileRef = ABFA150D2202DBE6000ACF42 /* unlocknvram.c */; };
 		ABFA15162202DBE7000ACF42 /* patchfinder64.c in Sources */ = {isa = PBXBuildFile; fileRef = ABFA150E2202DBE6000ACF42 /* patchfinder64.c */; };
+		C0476EAF2205C14C007F175C /* LemonMilk.otf in Resources */ = {isa = PBXBuildFile; fileRef = C0476EAE2205C14C007F175C /* LemonMilk.otf */; };
+		C0476EB12205C2D5007F175C /* xspiralwallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C0476EB02205C2D5007F175C /* xspiralwallpaper.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -124,6 +126,8 @@
 		ABFA150C2202DBE6000ACF42 /* noncereboot.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = noncereboot.c; sourceTree = "<group>"; };
 		ABFA150D2202DBE6000ACF42 /* unlocknvram.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unlocknvram.c; sourceTree = "<group>"; };
 		ABFA150E2202DBE6000ACF42 /* patchfinder64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = patchfinder64.c; sourceTree = "<group>"; };
+		C0476EAE2205C14C007F175C /* LemonMilk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LemonMilk.otf; sourceTree = "<group>"; };
+		C0476EB02205C2D5007F175C /* xspiralwallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xspiralwallpaper.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +179,9 @@
 				AB0E9F5422035FCB001E9502 /* Extension.m */,
 				ABFA144C2202CA83000ACF42 /* Main.storyboard */,
 				ABFA14512202CA84000ACF42 /* LaunchScreen.storyboard */,
+				C0476EAE2205C14C007F175C /* LemonMilk.otf */,
 				ABFA14552202CA84000ACF42 /* main.m */,
+				C0476EB02205C2D5007F175C /* xspiralwallpaper.png */,
 				ABFA14972202D146000ACF42 /* Icon.xcassets */,
 			);
 			path = XcodeGEN;
@@ -359,7 +365,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0476EAF2205C14C007F175C /* LemonMilk.otf in Resources */,
 				ABFA14982202D146000ACF42 /* Icon.xcassets in Resources */,
+				C0476EB12205C2D5007F175C /* xspiralwallpaper.png in Resources */,
 				ABFA14532202CA84000ACF42 /* LaunchScreen.storyboard in Resources */,
 				ABFA144E2202CA83000ACF42 /* Main.storyboard in Resources */,
 			);
@@ -567,7 +575,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38X2VQKPXT;
+				DEVELOPMENT_TEAM = 5GYK53TNND;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = rootKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -579,7 +587,7 @@
 					"-framework",
 					IOKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lake.research.rootKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seyed.rootkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -595,7 +603,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38X2VQKPXT;
+				DEVELOPMENT_TEAM = 5GYK53TNND;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = rootKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -607,7 +615,7 @@
 					"-framework",
 					IOKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lake.research.rootKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seyed.rootkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
