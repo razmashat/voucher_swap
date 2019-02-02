@@ -320,8 +320,10 @@
         int itemCount = countItemInThePath(fullPathForThisFile);
         NSString *details = [[NSString alloc] initWithFormat:@"%d item(s)", itemCount];
         cell.detailTextLabel.text = details;
+        cell.imageView.image = [UIImage imageNamed:@"folder"];
     }else{
         cell.detailTextLabel.text = @"";
+        cell.imageView.image = [UIImage imageNamed:@"file"];
     }
     
     return cell;
@@ -404,14 +406,28 @@
         }else{
             fullPathForThisFile = [[NSString alloc] initWithFormat:@"%@/%@", currentPath, currentFileList[indexPath.row]];
         }
-        NSError *err;
-        [[NSFileManager defaultManager] removeItemAtPath:fullPathForThisFile error:&err];
-        if (err != nil) {
-            NSLog(@"%@", err);
-            _errorLabel.text = @"Failed to delete file.";
-        }
-        currentFileList = catchContentUnderPath(currentPath);
-        tableView.reloadData;
+        NSString *msg = [[NSString alloc] initWithFormat:@"You are going to delete file: %@", currentFileList[indexPath.row]];
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Are you sure??"
+                                                                       message:msg
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* doAction = [UIAlertAction actionWithTitle:@"DELETE IT!" style:UIAlertActionStyleCancel
+                                                           handler:^(UIAlertAction * action) {
+                                                               NSError *err;
+                                                               [[NSFileManager defaultManager] removeItemAtPath:fullPathForThisFile error:&err];
+                                                               if (err != nil) {
+                                                                   NSLog(@"%@", err);
+                                                                   self->_errorLabel.text = @"Failed to delete file.";
+                                                               }
+                                                               self->currentFileList = catchContentUnderPath(self->currentPath);
+                                                               tableView.reloadData;
+                                                           }];
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                             handler:nil];
+        [alert addAction:doAction];
+        [alert addAction:cancelAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
     }
 }
 

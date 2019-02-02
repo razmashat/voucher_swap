@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AB0314D6220576C1004E04AC /* SpecialDeviceOffsets.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0314D5220576C1004E04AC /* SpecialDeviceOffsets.m */; };
 		AB0E9F5522035FCB001E9502 /* Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0E9F5422035FCB001E9502 /* Extension.m */; };
+		AB7824852206499200FE5019 /* file.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7824842206499200FE5019 /* file.png */; };
+		AB782487220649CA00FE5019 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = AB782486220649CA00FE5019 /* folder.png */; };
 		ABFA14482202CA83000ACF42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFA14472202CA83000ACF42 /* AppDelegate.m */; };
 		ABFA144B2202CA83000ACF42 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFA144A2202CA83000ACF42 /* ViewController.m */; };
 		ABFA144E2202CA83000ACF42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABFA144C2202CA83000ACF42 /* Main.storyboard */; };
@@ -61,7 +63,9 @@
 		AB0314D7220576C8004E04AC /* SpecialDeviceOffsets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecialDeviceOffsets.h; sourceTree = "<group>"; };
 		AB0E9F5422035FCB001E9502 /* Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Extension.m; sourceTree = "<group>"; };
 		AB0E9F5622035FD4001E9502 /* Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Extension.h; sourceTree = "<group>"; };
-		ABFA14432202CA83000ACF42 /* rootKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rootKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB7824842206499200FE5019 /* file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = file.png; sourceTree = "<group>"; };
+		AB782486220649CA00FE5019 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
+		ABFA14432202CA83000ACF42 /* xSpiral.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xSpiral.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFA14462202CA83000ACF42 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ABFA14472202CA83000ACF42 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ABFA14492202CA83000ACF42 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -144,7 +148,7 @@
 		ABFA143A2202CA83000ACF42 = {
 			isa = PBXGroup;
 			children = (
-				ABFA14452202CA83000ACF42 /* rootKit */,
+				ABFA14452202CA83000ACF42 /* xSpiral */,
 				ABFA14442202CA83000ACF42 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -152,25 +156,27 @@
 		ABFA14442202CA83000ACF42 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ABFA14432202CA83000ACF42 /* rootKit.app */,
+				ABFA14432202CA83000ACF42 /* xSpiral.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ABFA14452202CA83000ACF42 /* rootKit */ = {
+		ABFA14452202CA83000ACF42 /* xSpiral */ = {
 			isa = PBXGroup;
 			children = (
+				ABFA14542202CA84000ACF42 /* Info.plist */,
 				ABFA14FD2202DBE6000ACF42 /* RootUnit */,
 				ABFA14912202CFDB000ACF42 /* PostExploit */,
 				ABFA14902202CFAC000ACF42 /* XcodeGEN */,
-				ABFA14542202CA84000ACF42 /* Info.plist */,
 			);
-			path = rootKit;
+			path = xSpiral;
 			sourceTree = "<group>";
 		};
 		ABFA14902202CFAC000ACF42 /* XcodeGEN */ = {
 			isa = PBXGroup;
 			children = (
+				AB782486220649CA00FE5019 /* folder.png */,
+				AB7824842206499200FE5019 /* file.png */,
 				ABFA14462202CA83000ACF42 /* AppDelegate.h */,
 				ABFA14472202CA83000ACF42 /* AppDelegate.m */,
 				ABFA14492202CA83000ACF42 /* ViewController.h */,
@@ -309,9 +315,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ABFA14422202CA83000ACF42 /* rootKit */ = {
+		ABFA14422202CA83000ACF42 /* xSpiral */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ABFA14592202CA84000ACF42 /* Build configuration list for PBXNativeTarget "rootKit" */;
+			buildConfigurationList = ABFA14592202CA84000ACF42 /* Build configuration list for PBXNativeTarget "xSpiral" */;
 			buildPhases = (
 				ABFA143F2202CA83000ACF42 /* Sources */,
 				ABFA14402202CA83000ACF42 /* Frameworks */,
@@ -323,9 +329,9 @@
 			);
 			dependencies = (
 			);
-			name = rootKit;
+			name = xSpiral;
 			productName = rootKit;
-			productReference = ABFA14432202CA83000ACF42 /* rootKit.app */;
+			productReference = ABFA14432202CA83000ACF42 /* xSpiral.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -342,7 +348,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ABFA143E2202CA83000ACF42 /* Build configuration list for PBXProject "rootKit" */;
+			buildConfigurationList = ABFA143E2202CA83000ACF42 /* Build configuration list for PBXProject "xSpiral" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -355,7 +361,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ABFA14422202CA83000ACF42 /* rootKit */,
+				ABFA14422202CA83000ACF42 /* xSpiral */,
 			);
 		};
 /* End PBXProject section */
@@ -370,6 +376,8 @@
 				C0476EB12205C2D5007F175C /* xspiralwallpaper.png in Resources */,
 				ABFA14532202CA84000ACF42 /* LaunchScreen.storyboard in Resources */,
 				ABFA144E2202CA83000ACF42 /* Main.storyboard in Resources */,
+				AB7824852206499200FE5019 /* file.png in Resources */,
+				AB782487220649CA00FE5019 /* folder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +399,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd $CODESIGNING_FOLDER_PATH/../\nrm -rf ./Payload\nmkdir ./Payload\ncp -r $CODESIGNING_FOLDER_PATH ./Payload/\nzip -r ./rootKit.ipa ./Payload\nrm -rf ~/Desktop/rootKit.ipa\nmv ./rootKit.ipa ~/Desktop/\n\nrm -rf ./Payload\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -575,9 +584,9 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5GYK53TNND;
+				DEVELOPMENT_TEAM = 38X2VQKPXT;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = rootKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/xSpiral/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -587,7 +596,7 @@
 					"-framework",
 					IOKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seyed.rootkit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lakr.research.xSpiral;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -603,9 +612,9 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5GYK53TNND;
+				DEVELOPMENT_TEAM = 38X2VQKPXT;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = rootKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/xSpiral/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -615,7 +624,7 @@
 					"-framework",
 					IOKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seyed.rootkit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lakr.research.xSpiral;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -625,7 +634,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ABFA143E2202CA83000ACF42 /* Build configuration list for PBXProject "rootKit" */ = {
+		ABFA143E2202CA83000ACF42 /* Build configuration list for PBXProject "xSpiral" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ABFA14572202CA84000ACF42 /* Debug */,
@@ -634,7 +643,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ABFA14592202CA84000ACF42 /* Build configuration list for PBXNativeTarget "rootKit" */ = {
+		ABFA14592202CA84000ACF42 /* Build configuration list for PBXNativeTarget "xSpiral" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ABFA145A2202CA84000ACF42 /* Debug */,
