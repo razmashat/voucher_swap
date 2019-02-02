@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB0314D6220576C1004E04AC /* SpecialDeviceOffsets.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0314D5220576C1004E04AC /* SpecialDeviceOffsets.m */; };
 		AB0E9F5522035FCB001E9502 /* Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0E9F5422035FCB001E9502 /* Extension.m */; };
 		ABFA14482202CA83000ACF42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFA14472202CA83000ACF42 /* AppDelegate.m */; };
 		ABFA144B2202CA83000ACF42 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFA144A2202CA83000ACF42 /* ViewController.m */; };
@@ -25,7 +26,6 @@
 		ABFA14F32202D7FD000ACF42 /* kc_parameters.c in Sources */ = {isa = PBXBuildFile; fileRef = ABFA14D52202D7FD000ACF42 /* kc_parameters.c */; };
 		ABFA14F42202D7FD000ACF42 /* pac.c in Sources */ = {isa = PBXBuildFile; fileRef = ABFA14D62202D7FD000ACF42 /* pac.c */; };
 		ABFA14F52202D7FD000ACF42 /* platform.c in Sources */ = {isa = PBXBuildFile; fileRef = ABFA14DB2202D7FD000ACF42 /* platform.c */; };
-		ABFA14F62202D7FD000ACF42 /* README in Resources */ = {isa = PBXBuildFile; fileRef = ABFA14DD2202D7FD000ACF42 /* README */; };
 		ABFA14F72202D7FD000ACF42 /* kernel_memory.c in Sources */ = {isa = PBXBuildFile; fileRef = ABFA14E12202D7FD000ACF42 /* kernel_memory.c */; };
 		ABFA14F82202D7FD000ACF42 /* voucher_swap.c in Sources */ = {isa = PBXBuildFile; fileRef = ABFA14E72202D7FD000ACF42 /* voucher_swap.c */; };
 		ABFA14F92202D7FD000ACF42 /* kernel_alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = ABFA14E82202D7FD000ACF42 /* kernel_alloc.c */; };
@@ -55,6 +55,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AB0314D5220576C1004E04AC /* SpecialDeviceOffsets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpecialDeviceOffsets.m; sourceTree = "<group>"; };
+		AB0314D7220576C8004E04AC /* SpecialDeviceOffsets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecialDeviceOffsets.h; sourceTree = "<group>"; };
 		AB0E9F5422035FCB001E9502 /* Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Extension.m; sourceTree = "<group>"; };
 		AB0E9F5622035FD4001E9502 /* Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Extension.h; sourceTree = "<group>"; };
 		ABFA14432202CA83000ACF42 /* rootKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rootKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,7 +94,6 @@
 		ABFA14DA2202D7FD000ACF42 /* kernel_alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kernel_alloc.h; sourceTree = "<group>"; };
 		ABFA14DB2202D7FD000ACF42 /* platform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = platform.c; sourceTree = "<group>"; };
 		ABFA14DC2202D7FD000ACF42 /* kernel_slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kernel_slide.h; sourceTree = "<group>"; };
-		ABFA14DD2202D7FD000ACF42 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		ABFA14DE2202D7FD000ACF42 /* kernel_call.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kernel_call.h; sourceTree = "<group>"; };
 		ABFA14DF2202D7FD000ACF42 /* platform_match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform_match.h; sourceTree = "<group>"; };
 		ABFA14E02202D7FD000ACF42 /* parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parameters.h; sourceTree = "<group>"; };
@@ -189,6 +190,8 @@
 				ABFA14942202D005000ACF42 /* ExploitBridger.c */,
 				ABFA14992202D42F000ACF42 /* offsets.h */,
 				ABFA149A2202D42F000ACF42 /* offsets.m */,
+				AB0314D7220576C8004E04AC /* SpecialDeviceOffsets.h */,
+				AB0314D5220576C1004E04AC /* SpecialDeviceOffsets.m */,
 			);
 			path = PostExploit;
 			sourceTree = "<group>";
@@ -219,27 +222,26 @@
 		ABFA14CC2202D7FD000ACF42 /* voucher_swap */ = {
 			isa = PBXGroup;
 			children = (
-				ABFA14CD2202D7FD000ACF42 /* kernel_memory.h */,
-				ABFA14CE2202D7FD000ACF42 /* log.c */,
-				ABFA14CF2202D7FD000ACF42 /* parameters.c */,
-				ABFA14D02202D7FD000ACF42 /* platform_match.c */,
-				ABFA14D12202D7FD000ACF42 /* kernel_call.c */,
-				ABFA14D22202D7FD000ACF42 /* kernel_call */,
 				ABFA14D92202D7FD000ACF42 /* voucher_swap.h */,
+				ABFA14E72202D7FD000ACF42 /* voucher_swap.c */,
+				ABFA14E32202D7FD000ACF42 /* headers */,
+				ABFA14D22202D7FD000ACF42 /* kernel_call */,
 				ABFA14DA2202D7FD000ACF42 /* kernel_alloc.h */,
-				ABFA14DB2202D7FD000ACF42 /* platform.c */,
+				ABFA14E82202D7FD000ACF42 /* kernel_alloc.c */,
 				ABFA14DC2202D7FD000ACF42 /* kernel_slide.h */,
-				ABFA14DD2202D7FD000ACF42 /* README */,
 				ABFA14DE2202D7FD000ACF42 /* kernel_call.h */,
+				ABFA14D12202D7FD000ACF42 /* kernel_call.c */,
 				ABFA14DF2202D7FD000ACF42 /* platform_match.h */,
+				ABFA14D02202D7FD000ACF42 /* platform_match.c */,
 				ABFA14E02202D7FD000ACF42 /* parameters.h */,
+				ABFA14CF2202D7FD000ACF42 /* parameters.c */,
+				ABFA14CD2202D7FD000ACF42 /* kernel_memory.h */,
 				ABFA14E12202D7FD000ACF42 /* kernel_memory.c */,
 				ABFA14E22202D7FD000ACF42 /* log.h */,
-				ABFA14E32202D7FD000ACF42 /* headers */,
-				ABFA14E72202D7FD000ACF42 /* voucher_swap.c */,
-				ABFA14E82202D7FD000ACF42 /* kernel_alloc.c */,
+				ABFA14CE2202D7FD000ACF42 /* log.c */,
 				ABFA14E92202D7FD000ACF42 /* kernel_slide.c */,
 				ABFA14EA2202D7FD000ACF42 /* platform.h */,
+				ABFA14DB2202D7FD000ACF42 /* platform.c */,
 			);
 			path = voucher_swap;
 			sourceTree = "<group>";
@@ -356,7 +358,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABFA14F62202D7FD000ACF42 /* README in Resources */,
 				ABFA14982202D146000ACF42 /* Icon.xcassets in Resources */,
 				ABFA14532202CA84000ACF42 /* LaunchScreen.storyboard in Resources */,
 				ABFA144E2202CA83000ACF42 /* Main.storyboard in Resources */,
@@ -377,6 +378,7 @@
 				ABFA14EF2202D7FD000ACF42 /* parameters.c in Sources */,
 				ABFA14F12202D7FD000ACF42 /* kernel_call.c in Sources */,
 				ABFA14F22202D7FD000ACF42 /* user_client.c in Sources */,
+				AB0314D6220576C1004E04AC /* SpecialDeviceOffsets.m in Sources */,
 				ABFA15142202DBE7000ACF42 /* noncereboot.c in Sources */,
 				ABFA14FB2202D7FD000ACF42 /* kmem.c in Sources */,
 				ABFA15102202DBE7000ACF42 /* nonce.c in Sources */,
