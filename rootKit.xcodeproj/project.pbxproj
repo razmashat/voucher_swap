@@ -311,6 +311,7 @@
 				ABFA14402202CA83000ACF42 /* Frameworks */,
 				ABFA14412202CA83000ACF42 /* Resources */,
 				AB6811922203245100947531 /* Embed App Extensions */,
+				AB2362CD2205AFBF008BD8FA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -365,6 +366,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AB2362CD2205AFBF008BD8FA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf $CODESIGNING_FOLDER_PATH/../Payload\nmkdir $CODESIGNING_FOLDER_PATH/../Payload\ncp -r $CODESIGNING_FOLDER_PATH $CODESIGNING_FOLDER_PATH/../Payload/\nzip -r ~/Desktop/rootKit.ipa $CODESIGNING_FOLDER_PATH/../Payload\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ABFA143F2202CA83000ACF42 /* Sources */ = {
