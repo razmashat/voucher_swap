@@ -383,7 +383,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf $CODESIGNING_FOLDER_PATH/../Payload\nmkdir $CODESIGNING_FOLDER_PATH/../Payload\ncp -r $CODESIGNING_FOLDER_PATH $CODESIGNING_FOLDER_PATH/../Payload/\nzip -r ~/Desktop/rootKit.ipa $CODESIGNING_FOLDER_PATH/../Payload\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd $CODESIGNING_FOLDER_PATH/../\nrm -rf ./Payload\nmkdir ./Payload\ncp -r $CODESIGNING_FOLDER_PATH ./Payload/\nzip -r ./rootKit.ipa ./Payload\nrm -rf ~/Desktop/rootKit.ipa\nmv ./rootKit.ipa ~/Desktop/\n\nrm -rf ./Payload\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
