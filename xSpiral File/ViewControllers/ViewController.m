@@ -62,7 +62,16 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul), ^{
         // Exploit here.
-        runExploit((__bridge void *)(self));
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
+        dispatch_group_t group = dispatch_group_create();
+        dispatch_semaphore_t sm = dispatch_semaphore_create(0);
+        
+        dispatch_group_async(group, queue, ^{
+            runExploitSockPuppet3();
+            dispatch_semaphore_signal(sm);
+        });
+        
+        dispatch_semaphore_wait(sm, DISPATCH_TIME_FOREVER);
         dispatch_async(dispatch_get_main_queue(), ^{
             self->_outPutWindow.text = [[self->_outPutWindow text] stringByAppendingString: @"\n[*] Starting rootlessJB4 Jailbreak engine."];
             setOutPutString(self->_outPutWindow.text);
@@ -80,10 +89,11 @@
             [self->_openFileManager setHidden:NO];
             setOutPutString(self->_outPutWindow.text);
             rootCheckOrCheckIn();
-            NSString * storyboardName = @"Main";
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-            UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"FileManagerViewController"];
-            [self presentViewController:vc animated:YES completion:nil];
+            //NSString * storyboardName = @"Main";
+            //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+            //UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"FileManagerViewController"];
+            //[self presentViewController:vc animated:YES completion:nil];
+            
         });
     });
 }

@@ -36,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8833C919234A763C009210C3 /* LemonMilk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LemonMilk.otf; sourceTree = "<group>"; };
 		88E422CF234A27DF00A7C7B9 /* xSpiral File.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xSpiral File.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E422D2234A27DF00A7C7B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		88E422D3234A27DF00A7C7B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -124,6 +125,7 @@
 		88E422D1234A27DF00A7C7B9 /* xSpiral File */ = {
 			isa = PBXGroup;
 			children = (
+				8833C919234A763C009210C3 /* LemonMilk.otf */,
 				88E42330234A31B300A7C7B9 /* xspiralwallpaper.png */,
 				88E4232E234A319500A7C7B9 /* file.png */,
 				88E4232C234A318B00A7C7B9 /* folder.png */,
