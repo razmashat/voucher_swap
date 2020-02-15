@@ -11,12 +11,13 @@
 #include <sys/utsname.h>
 #include <sys/sysctl.h>
 #include <sys/syscall.h>
+#include "oob_timestamp.h"
+#include "log.h"
 
 
 #include <mach/mach.h>
 
-#include "everythingElse.h"
-#include "jelbrekLib.h"
+
 
 #include "Extension.h"
 
@@ -55,6 +56,8 @@
     }
 }
 
+#define KADDR_FMT "0x%" PRIx64
+
 - (IBAction)run:(id)sender {
     
     _outPutWindow.text = [[_outPutWindow text] stringByAppendingString: @"\n\n---\nStarting Exploiting..."];
@@ -67,24 +70,39 @@
         dispatch_semaphore_t sm = dispatch_semaphore_create(0);
         
         dispatch_group_async(group, queue, ^{
-            runExploitSockPuppet3();
+            oob_timestamp();
             dispatch_semaphore_signal(sm);
         });
         
         dispatch_semaphore_wait(sm, DISPATCH_TIME_FOREVER);
         dispatch_async(dispatch_get_main_queue(), ^{
-            self->_outPutWindow.text = [[self->_outPutWindow text] stringByAppendingString: @"\n[*] Starting rootlessJB4 Jailbreak engine."];
+            self->_outPutWindow.text = [[self->_outPutWindow text] stringByAppendingString: @"\n[*] No more sandbox :)."];
             setOutPutString(self->_outPutWindow.text);
+            [[NSFileManager defaultManager] createFileAtPath:@"/var/mobile/test_jb" contents:NULL attributes:nil];
+            
+            if ([[NSFileManager defaultManager] fileExistsAtPath:@"/var/mobile/test_jb"])
+            {
+                [[NSFileManager defaultManager] removeItemAtPath:@"/var/mobile/test_jb" error:nil];
+                INFO("Worked");
+                return;
+            } else {
+                WARNING(":(");
+                return;
+            }
         });
-        escapeSandbox();
         
-        init_with_kbase(tfp0, kernel_base);
-        
-        rootify(getpid());
-        
-        term_jelbrek();
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            
+            NSString *owo = [NSString stringWithFormat:@"\n[+] Kernel Base: " KADDR_FMT, kbase];
+            NSString *uwu = [NSString stringWithFormat:@"\n[+] Kernel Slide: " KADDR_FMT, kslide];
+            NSString *owu = [NSString stringWithFormat:@"\n[+] tfp0: 0x%x", tfp0];
+            
+            self->_outPutWindow.text = [[self->_outPutWindow text] stringByAppendingString:owo];
+            self->_outPutWindow.text = [[self->_outPutWindow text] stringByAppendingString:uwu];
+            self->_outPutWindow.text = [[self->_outPutWindow text] stringByAppendingString:owu];
+            
             self->_outPutWindow.text = [[self->_outPutWindow text] stringByAppendingString: @"\nGot root and UID 0.\nDone."];
             [self->_openFileManager setHidden:NO];
             setOutPutString(self->_outPutWindow.text);
